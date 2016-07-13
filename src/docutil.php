@@ -3,7 +3,7 @@ namespace cosmos\util;
 
 abstract class DocUtil
 {
-	__construct() {}
+	function __construct() {}
 
 	/**
 	 * safeScript
