@@ -12,16 +12,16 @@ abstract class BasicEnum {
 
 	/**
 	 * getConstants 
-	 * 호출된 클래스의 constants 를 cache 에 저장하고 return.
+	 * 호출된 클래스의 constants를 cache에 저장하고 return.
 	 * @return array 호출된 클래스의 상수들
 	 */
 	private static function getConstants() {
 		if(self::$constCacheArray == NULL) {
 			self::$constCacheArray = [];
 		}
-		$calledClass = get_called_class(); // static 이 호출된 클래스
+		$calledClass = get_called_class(); // static이 호출된 클래스
 		if(!array_key_exists($calledClass, self::$constCacheArray)) {
-			$reflect = new ReflectionClass($calledClass); // class 에 대한 정보 설명해준다.
+			$reflect = new ReflectionClass($calledClass); // class에 대한 정보 설명해준다.
 			self::$constCacheArray[$calledClass] = $reflect->getConstants(); // 호출된 클래스의 상수를 얻어서 캐시에 저장.
 		}
 		return self::$constCacheArray[$calledClass];
@@ -41,7 +41,7 @@ abstract class BasicEnum {
 			return array_key_exists($name, $constants);
 		}
 		// case insensitive
-		$keys = array_map('strtolower', array_keys($constants)); // 콜백(strtolower) 를 array 의 모든 요소에 적용하고 return.
+		$keys = array_map('strtolower', array_keys($constants)); // 콜백(strtolower) 를 array의 모든 요소에 적용하고 return.
 		return in_array(strtolower($name), $keys);
 	}
 

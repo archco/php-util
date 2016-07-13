@@ -1,0 +1,21 @@
+{
+    "name": "cosmos/php-util",
+    "description": "PHP useful Util Library",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jinyong Kim",
+            "email": "archcoster@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.5.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "cosmos\\util\\": "src/"
+        }
+    }
+}
