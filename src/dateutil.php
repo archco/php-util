@@ -41,8 +41,8 @@ abstract class DateUtil
 	 * @return integer		age
 	 */
 	public static function getAge($birth_date) {
-		$birth = new DateTime($birth_date);
-		$today = new DateTime();
+		$birth = new \DateTime($birth_date);
+		$today = new \DateTime();
 		return $birth->diff($today)->y;
 	}
 }
