@@ -1,6 +1,8 @@
 <?php 
 namespace cosmos\util;
 
+use DateTime;
+
 abstract class DateUtil
 {
 	function __construct() {}
@@ -38,12 +40,22 @@ abstract class DateUtil
 	 * getAge
 	 * 
 	 * @param  string $birth_date 
-	 * @return integer		age
+	 * @param  null|string $nation ['ko']
+	 * @return int    age
 	 */
-	public static function getAge($birth_date) {
-		$birth = new \DateTime($birth_date);
-		$today = new \DateTime();
-		return $birth->diff($today)->y;
+	public static function getAge($birth_date, $nation = null) {
+		$birth = new DateTime($birth_date);
+		$today = new DateTime();
+
+		if (strtolower($nation) == 'ko') {
+			// korean age.
+			$age = $today->format('Y') - $birth->format('Y') + 1;
+		} else {
+			// default.
+			$age = $birth->diff($today)->y;
+		}
+		
+		return $age;
 	}
 }
 ?>
